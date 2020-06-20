@@ -1,20 +1,14 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
+    <h1 v-text="nome"/>
+    <small v-if="displaySmall" v-once v-text="nome"/>
+    <br>
+    <button :disabled="disabledButton" @click="displaySmall=!displaySmall">Small on/off</button>
+    <br>
+    <input type="text" v-model="nome">
+    <p>Cadeiras:</p>
     <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
+      <li v-for="cadeira in cadeiras" :key="cadeira">{{cadeira}}</li>
     </ul>
   </div>
 </template>
@@ -24,37 +18,20 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      nome: 'Mané Garrincha',
+      displaySmall: true,
+      disabledButton: true,
+      cadeiras: ["30.000 brancas","30.000 cinzas","10.000 vips"]
     }
+  },
+  mounted(){
+    setTimeout(() => { 
+      this.nome = "Mineirão"
+      this.disabledButton = false
+    }, 4000)
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 </style>
