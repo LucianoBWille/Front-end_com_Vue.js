@@ -25,6 +25,11 @@
     <br><hr>
     <lv-leitor></lv-leitor>
     <lv-comentarios></lv-comentarios>
+    <br><hr>
+    <lv-usuario :nome="'Luciano'" @novaMsg="escrever"></lv-usuario>
+    <lv-usuario :nome="'Amarildo'" @novaMsg="escrever"></lv-usuario>
+    <br>
+    <div v-html="chat"></div>
   </div>
 </template>
 
@@ -33,6 +38,7 @@ import LvLista from './components/LvLista.vue'
 import LvCartao from './components/LvCartao.vue'
 import LvLeitor from './components/LvLeitor.vue'
 import LvComentarios from './components/LvComentarios.vue'
+import LvUsuario from './components/LvUsuario.vue'
 
 export default {
   name: 'App',
@@ -41,7 +47,18 @@ export default {
     LvCartao,
     LvLeitor,
     LvComentarios,
-  }
+    LvUsuario,
+  },
+  data() {
+    return {
+      chat: ''
+    }
+  },
+  methods: {
+    escrever(mensagem) {
+      this.chat = mensagem + '<hr>' + this.chat
+    }
+  },
 }
 </script>
 
