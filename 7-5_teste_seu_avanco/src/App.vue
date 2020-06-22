@@ -1,18 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <lw-confirmacao v-if="!confirmado" titulo="Algo" @confirmation="confirmar">
+      <p>Sem duvidas vai ficar <b>estranho</b></p>
+    </lw-confirmacao>
+    <p v-if="confirmado"> 
+      {{informativo | reverse}}
+    </p>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import LwConfirmacao from './components/LwConfirmacao.vue'
+import reverse from './reverse'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    LwConfirmacao,
+  },
+  data() {
+    return {
+      confirmado: false,
+      informativo: "Confirmado carai"
+    }
+  },
+  mixins: [reverse],
+  methods: {
+    confirmar() {
+      this.confirmado=true
+    }
+  },
 }
 </script>
 
