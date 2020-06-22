@@ -22,18 +22,25 @@
       <div slot="rodape">
       </div>
     </lv-cartao>
+    <br><hr>
+    <lv-leitor></lv-leitor>
+    <lv-comentarios></lv-comentarios>
   </div>
 </template>
 
 <script>
 import LvLista from './components/LvLista.vue'
 import LvCartao from './components/LvCartao.vue'
+import LvLeitor from './components/LvLeitor.vue'
+import LvComentarios from './components/LvComentarios.vue'
 
 export default {
   name: 'App',
   components: {
     LvLista,
-    LvCartao
+    LvCartao,
+    LvLeitor,
+    LvComentarios,
   }
 }
 </script>

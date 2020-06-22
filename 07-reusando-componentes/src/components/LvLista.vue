@@ -36,6 +36,6 @@ li {
     display: inline;
     list-style-type: none;
     padding-right: 20px;
-    float: left;
+    /*float: left;*/
 }
 </style>
