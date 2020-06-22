@@ -1,24 +1,39 @@
 <template>
   <div id="app">
     <h4>Lista um</h4>
-    <LvLista :lista="['feijão','arroz', 'carne']"></LvLista>
+    <lv-lista :lista="['feijão','arroz', 'carne']"></lv-lista>
     <br>
-    <LvLista :lista="['feijão','arroz', 'carne']" ordena></LvLista>
+    <lv-lista :lista="['feijão','arroz', 'carne']" ordena></lv-lista>
     <br>
     <h4>Lista dois</h4>
-    <LvLista :lista="['leite','biscoito', 'bombom', 'aveia']" :ordena="true"></LvLista>
+    <lv-lista :lista="['leite','biscoito', 'bombom', 'aveia']" :ordena="true"></lv-lista>
     <br>
-    <LvLista :lista="['leite','biscoito', 'bombom', 'aveia']"></LvLista>
+    <lv-lista :lista="['leite','biscoito', 'bombom', 'aveia']"></lv-lista>
+    <br><hr>
+    <lv-cartao titulo="Preço">
+      Aqui você encontra preços <strong>baixos</strong>
+      <div slot="rodape">
+        Meu conteúdo do rodapé
+      </div>
+    </lv-cartao>
+    <br><hr>
+    <lv-cartao titulo="Qualidade">
+      Temos os produtos com mais <strong>qualidade</strong> do mercado.
+      <div slot="rodape">
+      </div>
+    </lv-cartao>
   </div>
 </template>
 
 <script>
 import LvLista from './components/LvLista.vue'
+import LvCartao from './components/LvCartao.vue'
 
 export default {
   name: 'App',
   components: {
-    LvLista
+    LvLista,
+    LvCartao
   }
 }
 </script>

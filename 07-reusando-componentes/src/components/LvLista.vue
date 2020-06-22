@@ -8,7 +8,7 @@
 
 <script>
     export default {
-        name: 'LvLista',
+        name: 'lv-lista',
         props: {
             ordena: {
                 type: Boolean,
