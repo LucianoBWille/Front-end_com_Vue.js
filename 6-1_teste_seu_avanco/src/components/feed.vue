@@ -50,9 +50,6 @@
                 ]
             }
         },
-        methods:{
-
-        },
         //filters:
         //computed:
         //watch:

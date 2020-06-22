@@ -1,4 +1,4 @@
-# componentes-juntos-sao-mais-fortes
+# recebendo-atributos-externos
 
 ## Project setup
 ```
