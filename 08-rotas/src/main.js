@@ -7,6 +7,7 @@ import Usuarios from "./components/Usuarios.vue"
 Vue.use(VueRouter);
 
 const router = new VueRouter({
+  mode: 'history',
   routes: [
     {path: '/', component:Inicial},
     {path: '/usuarios', component:Usuarios},
