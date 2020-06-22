@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Inicial from "./components/Inicial.vue"
 import Usuarios from "./components/Usuarios.vue"
 import NovoUsuario from "./components/NovoUsuario.vue"
+import Notificacao from "./components/Notificacao.vue"
 
 Vue.use(VueRouter);
 
@@ -15,7 +16,8 @@ const router = new VueRouter({
       path: '/usuarios', 
       component:Usuarios,
       children: [
-        {path:'novo', component:NovoUsuario}
+        {path:'novo', component:NovoUsuario},
+        {path: ':msg', component:Notificacao, props:true},
       ]
     },
   ]
