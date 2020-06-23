@@ -1,5 +1,10 @@
 module.exports = {
   presets: [
-    '@vue/cli-plugin-babel/preset'
-  ]
+    [
+      "latest", {
+        "es2015": {"modules": false}
+      }
+    ]
+  ],
+  "plugins": ["transform-object-rest-spread"]
 }

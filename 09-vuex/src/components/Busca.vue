@@ -3,12 +3,14 @@
         <label>Buscar por </label>
         <input type="text" v-model="termo">
         <ul>
-            <li v-for="tarefa in resultado" :key="tarefa">{{ tarefa }}</li>
+            <li v-for="tarefa in resultado(termo)" :key="tarefa">{{ tarefa }}</li>
         </ul>
     </div>
 </template>
 
 <script>
+    import { mapGetters } from 'vuex'
+
     export default {
         name: 'lvbusca',
         data() {
@@ -16,10 +18,13 @@
                 termo: '',
             }
         },
-        computed: {
+        computed: {/*
             resultado() {
-                return this.$store.getters.buscaTarefas(this.termo) 
-            }
+                return this.buscaTarefas(this.termo) 
+            },*/
+            ...mapGetters({
+                resultado: 'buscaTarefas'
+            })
         },
     }
 </script>

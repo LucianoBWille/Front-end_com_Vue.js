@@ -1,10 +1,12 @@
 <template>
     <div>
-        <button @click="apagar">X</button>
+        <button @click="apagar(tarefa)">X</button>
     </div>
 </template>
 
 <script>
+    import { mapActions } from 'vuex';
+
     export default {
         name: 'lvdeltarefa',
         props: {
@@ -13,10 +15,13 @@
                 type: String,
             }
         },
-        methods: {
+        methods: {/*
             apagar() {
-                this.$store.commit('DEL_TAREFA', this.tarefa)
-            }
+                this.$store.dispatch('removerTarefa', this.tarefa)
+            },*/
+            ...mapActions({
+                apagar: 'removerTarefa'
+            })
         },
     }
 </script>

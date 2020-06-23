@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    {{$store.state.nome}}
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -10,11 +9,21 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   mounted () {
     setTimeout( () => {
-      this.$store.state.nome = 'novo nome'
+      this.nome = 'novo nome'
     }, 1500)
+  },
+  computed: {
+    ...mapState([
+        'nome'
+    ])
+  },
+  mounted() {
+    console.log(this.nome)
   },
 }
 </script>

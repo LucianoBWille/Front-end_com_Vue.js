@@ -11,16 +11,20 @@
 
 <script>
     import lvdeltarefa from './DelTarefa'
+    import { mapGetters } from 'vuex'
 
     export default {
         name: 'lvtarefas',
         components: {
             lvdeltarefa,
         },
-        computed: {
+        computed: {/*
             tarefas() {
-                return this.$store.getters.listaTarefas 
-            }
+                return this.listaTarefas 
+            },*/
+            ...mapGetters({
+                tarefas: 'listaTarefas'
+            }),
         },
     }
 </script>
